@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Selections</title>
+    <style>
+    .axis line,
+    .axis path {
+      stroke-width: 1;
+      fill: none;
+      stroke: #333;
+      shape-rendering: crispEdges;
+    }
+  </style>
+ </head>
+ <body>
+<div id="viz-wrapper">
+</div>
+ <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+ <script type="text/javascript">
+    
+    // height and width of the svg
+    var height = 800,
+         width = 500;
+
+    var padding = 50;
+
+    var defaultCircleRadius = 2;
+
+    var viz = d3.select("#viz-wrapper")
+                    .append('svg')
+                    .attr('height', height + padding * 2 )
+                    .attr('width', width + padding * 2)
+                    .append('g')
+                    .attr('id', 'viz')
+                    .attr('transform', 
+                      'translate(' + padding + ',' + padding + ')');
+
+    var yScale = d3.scale.linear()
+                          .range([height, 0]);
+
+    var xScale = d3.scale.linear()
+                          .range([0, width]);
+
+    
+ </script>
+ </body>
+</html>
