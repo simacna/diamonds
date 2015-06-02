@@ -18,7 +18,7 @@
 </div>
  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
  <script type="text/javascript">
-    
+    //want to create a simple x vs y axis comparing price vs carat, hover over each circle and have price & carat show up
     // height and width of the svg
     var height = 800,
          width = 500;
@@ -39,7 +39,7 @@
     //Scales and Axes. Both are linear
 
     var x = d3.scale.linear().range([0, width]),
-        y = d3.scale.linear().range([0, height])
+        y = d3.scale.linear().range([0, height]),
         xAxis = d3.svg.axis().scale(x).ticks(10),
         yAxis = d3.svg.axis();
 
@@ -50,11 +50,20 @@
     //                       .range([0, width]);
 
 
-   diamonds = d3.csv("diamonds.csv")
-    .row(function(d) { return {key: d.key, value: +d.value};});
+   d3.csv("diamonds.csv?$select=carat,price",
+    function (error, data) {
+      data.forEach(function(d){
+        d.carat = +d.carat;
+        d.price = +d.price;
+      });
+
+    console.log(data);
+
+    });
+    
 
     //let's see if diamonds logs into the console
-   console.log(diamonds);                  
+                     
 
     
  </script>
