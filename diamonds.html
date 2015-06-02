@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <title>Selections</title>
     <style>
-    #viz-wrapper {
+    /*#viz-wrapper {
       padding-top: 50px;
-    }
+    }*/
     .axis line,
     .axis path {
       stroke-width: 1;
@@ -36,7 +36,7 @@
                     .attr('width', width + padding * 2)
                     .append('g')
                     .attr('id', 'viz')
-                    .attr('padding-top', padding*4)
+                    .attr('padding-top', padding)
                     .attr('transform', 
                       'translate(' + padding + ',' + padding + ')');
 
@@ -45,7 +45,7 @@
     var x = d3.scale.linear().range([0, width]),
         y = d3.scale.linear().range([0, height]),
         xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(10),
-        yAxis = d3.svg.axis().scale(y).orient("left").ticks(10);
+        yAxis = d3.svg.axis().scale(y).orient("left").ticks(6);
 
     
 
@@ -66,7 +66,7 @@
 
     //Set Y domain
     y.domain([ d3.max(data, function(d) {
-      return d.price;
+      return (d.price-4000) ;
     }), 0]);
 
     svg.append("g")
