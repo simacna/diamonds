@@ -55,8 +55,23 @@
       data.forEach(function(d){
         d.carat = +d.carat;
         d.price = +d.price;
+        // console.log(d.carat);
       });
+    
 
+    //Set X domain
+    x.domain(data.map(function(d){
+
+      return d.carat;
+
+    }));
+    //Set Y domain
+    yDomain = y.domain(data.map(function(d){
+      return d.price;
+    }));
+
+ 
+    
     console.log(data);
 
     });
