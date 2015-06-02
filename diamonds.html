@@ -77,13 +77,33 @@
     svg.append("g")
       .attr("class", "y axis")
       .call(yAxis);
-     
 
-    });
-    
 
-    //let's see if diamonds logs into the console
-                     
+    //create each value to be displayed on graph
+
+    dots = svg.selectAll('g.dots')
+           .data(data)
+           .enter()
+           .append('g')
+           .attr('class', 'dots');
+
+    dots.attr('transform', function(d){
+
+      x = d.carat*100;
+      y = d.price
+
+      return 'translate(' + x + ',' + y + ')'})
+      .style('stroke', "black")
+      .style('fill', 'red');
+
+      dots.append('circle')
+        .attr('r', 1);
+
+
+
+
+     });
+                   
 
     
  </script>
